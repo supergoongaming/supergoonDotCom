@@ -70,9 +70,21 @@ header p {
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    padding: 50px 0;
+    /* width: 80%; */
+    width: 75%;
+    /* margin: auto;
+    padding: 25 0; */
+    max-width: 1200px;
+    /* Keep a maximum width for larger screens */
+    margin: 0 auto;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    /* Ensure padding doesn’t cause overflow */
+    justify-content: center;
+    /* Center align projects */
+    gap: 20px;
+    padding: 0;
+    /* Remove extra padding causing overflow */
 }
 
 .projects {
