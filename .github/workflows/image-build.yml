@@ -1,0 +1,16 @@
+name: Push to Docker hub
+run-name: "Push to docker hub: ${{ github.actor }} 🚀"
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  Build-Linux:
+    # runs-on: ubuntu-latest
+    uses: supergoongaming/sharedWorkflows/.github/workflows/image_build.yml@master
+    with:
+      image_name: enf3rno/sg_com_simple
+      build_number: ${{ github.run_number }}
+      dockerfile_location: ./Dockerfile
+    secrets: inherit
