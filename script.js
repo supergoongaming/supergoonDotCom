@@ -1,17 +1,3 @@
-// 🔥 Smooth Scroll Animations (Fade-in on Scroll)
-document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.3 });
-
-    elements.forEach(element => observer.observe(element));
-});
-
 function toggleDarkMode() {
     document.body.classList.toggle("light-mode");
 }
@@ -40,6 +26,7 @@ function eraseText() {
         setTimeout(eraseText, 50);
     } else {
         textIndex = (textIndex + 1) % textArray.length;
+        // typingElement.textContent = "&nbsp";
         setTimeout(typeText, 500);
     }
 }
