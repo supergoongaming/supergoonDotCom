@@ -238,3 +238,78 @@ header p {
 .light-mode .dark-mode-btn:hover {
     background: #333333;
 }
+
+.blog-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.blogs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.blog-card {
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.8));
+    padding: 20px;
+    margin: 10px;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.5);
+}
+
+.blog-card h3 {
+    color: #8a2be2;
+    font-weight: 600;
+}
+
+.blog-card a {
+    color: #8a2be2;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.blog-card a:hover {
+    color: #6a0dad;
+    text-decoration: underline;
+}
+
+.toggle-btn {
+    /* position: fixed; */
+    /* top: 70px; */
+    /* right: 20px; */
+    margin-top: 2em;
+    padding: 10px 15px;
+    background: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.toggle-btn:hover {
+    background: #6a0dad;
+}
+
+.light-mode .toggle-btn {
+    background: #121212;
+    color: white;
+}
+
+.light-mode .toggle-btn:hover {
+    background: #333333;
+}
