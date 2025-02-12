@@ -3,6 +3,7 @@
 
 ### Goals
 - Get a little better with html/css/js
+- Keep it simple, but also SPA cause that was cool back in the day
 
 
 ### Description
