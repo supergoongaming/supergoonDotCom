@@ -9,6 +9,7 @@ function getPage(location, changeLocation, closeFunc) {
         .then(html => {
             document.getElementById(changeLocation).innerHTML = html;
             closeFunc();
+            // history.pushState({ location, html }, "", url);
         })
         .catch(error => console.error('Error loading:', location, changeLocation, error));
 }
@@ -24,7 +25,7 @@ function toggleView(pressedButton) {
             blogsSection.style.display = "none";
         })
     } else {
-        getPage('blogs/2025/blog.html', 'blogs-section', () => {
+        getPage('blogs/blog.html', 'blogs-section', () => {
             projectsSection.style.display = "none";
             blogsSection.style.display = "block";
         })
@@ -32,4 +33,9 @@ function toggleView(pressedButton) {
 }
 
 document.onload(toggleView('projects'))
+// window.onpopstate = function (event) {
+//     if (event.state) {
+//         document.getElementById("content").innerHTML = event.state.html;
+//     }
+// };
 

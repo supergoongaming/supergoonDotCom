@@ -1,5 +1,6 @@
 const typingElement = document.getElementById("typing-text");
-const textArray = ["Infrastructure Engineer", "Game Developer", "DevOps Enthusiast"];
+const textArray = ["Infrastructure Engineer", "Game Developer", "DevOps Engineer", "Tech Tinkerer", "Networking Specialist"];
+
 let textIndex = 0;
 let charIndex = 0;
 
