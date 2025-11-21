@@ -3,8 +3,8 @@ function toggleDarkMode() {
 }
 
 function getPage(location, changeLocation, closeFunc) {
-    // fetch(location, { cache: 'force-cache' })
     fetch(location, { cache: 'no-cache' })
+        .then(console.warn("What even"))
         .then(response => response.text())
         .then(html => {
             document.getElementById(changeLocation).innerHTML = html;

@@ -4,5 +4,6 @@ function loadBlog(name, year) {
         .then(html => {
             document.getElementById("blogs-section").innerHTML = html;
         })
+        .then(console.warn("Loaded the html", html))
         .catch(error => console.error('Error loading:', location, changeLocation, error));
 }
