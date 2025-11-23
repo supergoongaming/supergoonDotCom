@@ -35,10 +35,16 @@ header h2 {
     display: block;
 }
 
+header p {
+    font-size: 1em;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.8;
+}
+
 #typing-text {
     min-height: 2em;
 }
-
 
 @media (max-width: 768px) {
     header h1 {
@@ -61,12 +67,6 @@ header h2 {
 }
 
 
-header p {
-    font-size: 1em;
-    max-width: 700px;
-    margin: auto;
-    opacity: 0.8;
-}
 
 .container {
     width: 80%;
@@ -150,7 +150,7 @@ header p {
 }
 
 .light-mode header {
-    color: #ffffff;
+    background: rgba(180, 180, 180, 1.0);
 }
 
 .light-mode .contact {
@@ -161,6 +161,11 @@ header p {
 .light-mode .dark-mode-btn {
     background: #121212;
     color: white;
+}
+
+.light-mode .card {
+    background: linear-gradient(135deg, rgba(210, 210, 210, 0.9), rgba(180, 180, 180, 1.0));
+
 }
 
 .dark-mode-btn {
@@ -212,6 +217,14 @@ header p {
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+}
+
+.projects-section {
+    display = none
+}
+
+.blogs-section {
+    display = none
 }
 
 .toggle-btn {

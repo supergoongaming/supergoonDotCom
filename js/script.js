@@ -4,17 +4,13 @@ function toggleDarkMode() {
 
 function getPage(location, changeLocation, closeFunc) {
     fetch(location, { cache: 'no-cache' })
-        .then(console.warn("What even"))
         .then(response => response.text())
         .then(html => {
             document.getElementById(changeLocation).innerHTML = html;
             closeFunc();
-            // history.pushState({ location, html }, "", url);
         })
         .catch(error => console.error('Error loading:', location, changeLocation, error));
 }
-
-document.getElementById("year").textContent = new Date().getFullYear();
 
 function toggleView(pressedButton) {
     let projectsSection = document.getElementById("projects-section");
@@ -32,10 +28,4 @@ function toggleView(pressedButton) {
     }
 }
 
-document.onload(toggleView('projects'))
-// window.onpopstate = function (event) {
-//     if (event.state) {
-//         document.getElementById("content").innerHTML = event.state.html;
-//     }
-// };
-
+document.getElementById("year").textContent = new Date().getFullYear();
