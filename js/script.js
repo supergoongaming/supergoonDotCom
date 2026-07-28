@@ -1,31 +1,17 @@
-function toggleDarkMode() {
-    document.body.classList.toggle("light-mode");
-}
-
 function getPage(location, changeLocation, closeFunc) {
     fetch(location, { cache: 'no-cache' })
         .then(response => response.text())
         .then(html => {
             document.getElementById(changeLocation).innerHTML = html;
-            closeFunc();
+            if(closeFunc) {closeFunc()};
         })
         .catch(error => console.error('Error loading:', location, changeLocation, error));
 }
 
-function toggleView(pressedButton) {
-    let projectsSection = document.getElementById("projects-section");
-    let blogsSection = document.getElementById("blogs-section");
-    if (pressedButton === 'projects') {
-        getPage('projects/projects.html', 'projects-section', () => {
-            projectsSection.style.display = "block";
-            blogsSection.style.display = "none";
-        })
-    } else {
-        getPage('blogs/blog.html', 'blogs-section', () => {
-            projectsSection.style.display = "none";
-            blogsSection.style.display = "block";
-        })
-    }
-}
+//Load nav and contact
+getPage("html/navbar.html", "nav")
+getPage("html/contact.html", "contact", () => {
+    //Load year after we have loaded
+    document.getElementById("year").textContent = new Date().getFullYear();
+})
 
-document.getElementById("year").textContent = new Date().getFullYear();
