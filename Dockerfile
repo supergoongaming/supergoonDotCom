@@ -1,8 +1,9 @@
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY src/ ./src/
+RUN pip install --no-cache-dir -r src/requirements.txt
+RUN python src/build.py dist/
+
 FROM nginx:stable-bookworm
-COPY index.html /usr/share/nginx/html/
-COPY projects/ /usr/share/nginx/html/projects/
-COPY css/ /usr/share/nginx/html/css/
-COPY blogs/ /usr/share/nginx/html/blogs/
-COPY js/ /usr/share/nginx/html/js/
-# ADD projects css js /usr/share/nginx/html
+COPY --from=builder /build/dist/ /usr/share/nginx/html/
 CMD ["nginx", "-g", "daemon off;"]
