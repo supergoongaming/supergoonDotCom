@@ -1,11 +1,9 @@
-"use strict";
-
 const MAGIC = "sgWad\0";
 const MAGIC_SIZE = 6;
 const HEADER_SIZE = MAGIC_SIZE + 2 + 2 + 4;
 const ENTRY_SIZE = 64 + 4 + 4;
 
-function parseArchive(arrayBuffer) {
+export function parseArchive(arrayBuffer) {
   const view = new DataView(arrayBuffer);
   const decoder = new TextDecoder("utf-8");
 
@@ -35,7 +33,7 @@ function parseArchive(arrayBuffer) {
   return { flags, entries };
 }
 
-function buildArchive(entries, flags) {
+export function buildArchive(entries, flags) {
   flags = flags || 0;
   let totalDataSize = 0;
   for (const e of entries) {
@@ -73,7 +71,7 @@ function buildArchive(entries, flags) {
   return buf;
 }
 
-function entriesToFiles(entries) {
+export function entriesToFiles(entries) {
   const decoder = new TextDecoder("utf-8");
   const files = {};
   for (const e of entries) {
@@ -87,7 +85,7 @@ function entriesToFiles(entries) {
   return files;
 }
 
-function filesToEntries(files) {
+export function filesToEntries(files) {
   const encoder = new TextEncoder();
   const entries = [];
   for (const [name, content] of Object.entries(files)) {
