@@ -1,14 +1,14 @@
 # Portfolio page -  Supergoon Dot Com
 
-## A dead simple site with vanilla html/css/js
+## A dead simple go site with vanilla html/css/js mixed with go templates
 
 ### Goals
 
 - Get a little better with html/css/js
-- Keep it simple, but also SPA cause that was cool back in the day
+- Keep it simple, but also use some templates
 
 ### Description
 
 - [website](https://supergoon.com)
 - hosted on k3s
-- test with live-server
+- test with go run .
