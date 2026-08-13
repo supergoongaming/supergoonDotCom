@@ -2,8 +2,8 @@
 
 const MAGIC = "sgWad\0";
 const MAGIC_SIZE = 6;
-const HEADER_SIZE = MAGIC_SIZE + 2 + 2 + 4; // magic + flags + numLumps + dirOffset
-const ENTRY_SIZE = 64 + 4 + 4; // name + size + offset
+const HEADER_SIZE = MAGIC_SIZE + 2 + 2 + 4;
+const ENTRY_SIZE = 64 + 4 + 4;
 
 function parseArchive(arrayBuffer) {
   const view = new DataView(arrayBuffer);
@@ -49,21 +49,17 @@ function buildArchive(entries, flags) {
   const u8 = new Uint8Array(buf);
   const encoder = new TextEncoder();
 
-  // Header
   const magicBytes = encoder.encode(MAGIC);
   u8.set(magicBytes, 0);
   view.setUint16(MAGIC_SIZE, flags, false);
   view.setUint16(MAGIC_SIZE + 2, entries.length, false);
   view.setUint32(MAGIC_SIZE + 4, dirOffset, false);
 
-  // Data + directory
   let currentOffset = 0;
   for (let i = 0; i < entries.length; i++) {
     const e = entries[i];
-    // Write file data
     u8.set(new Uint8Array(e.data), HEADER_SIZE + currentOffset);
 
-    // Write directory entry
     const entryStart = dirOffset + i * ENTRY_SIZE;
     const nameBytes = encoder.encode(e.name);
     u8.fill(0, entryStart, entryStart + 64);

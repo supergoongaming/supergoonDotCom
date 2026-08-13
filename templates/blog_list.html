@@ -1,0 +1,15 @@
+{{define "title"}}Blog - supergoon.com{{end}}
+
+{{define "content"}}
+<h2>Blog</h2>
+<div class="cards">
+    {{range .Posts}}
+    <div class="card">
+        <h3>{{.Title}}</h3>
+        <p>{{.Description}}</p>
+        <a href="/blog/{{.Slug}}">Read More</a>
+        <span class="card-year">{{.Date.Format "January 2006"}}</span>
+    </div>
+    {{end}}
+</div>
+{{end}}

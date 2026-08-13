@@ -1,0 +1,30 @@
+{{define "base"}}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    {{block "head" .}}{{end}}
+    <title>{{block "title" .}}Kevin Blanchard - supergoon.com{{end}}</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+        <a href="/sgforge">SGForge</a>
+    </nav>
+
+    <main>
+        {{block "content" .}}{{end}}
+    </main>
+
+    <footer>
+        <p>kevin@supergoon.com |
+            <a href="https://www.linkedin.com/in/kevin-blanchard-51399074">LinkedIn</a> |
+            <a href="https://github.com/kjblanchard">GitHub</a>
+        </p>
+        <p>&copy; 2023&ndash;{{.Year}} Kevin Blanchard</p>
+    </footer>
+</body>
+</html>{{end}}
